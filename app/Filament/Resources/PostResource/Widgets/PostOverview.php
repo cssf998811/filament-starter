@@ -17,16 +17,18 @@ class PostOverview extends BaseWidget
         $posts = Post::count();
         $published = Post::published()->count();
         $drafts = Post::drafts()->count();
+        $authors = Post::authors()->count();
 
         return [
+            Stat::make('Authors', Number::format($authors))
+                ->description('The total number of authors')
+                ->icon('heroicon-o-user-circle'),
             Stat::make('Total Posts', Number::format($posts))
                 ->description('The total number of posts')
                 ->icon('heroicon-o-book-open'),
-
             Stat::make('Published Posts', Number::format($published))
                 ->description('The total number of published posts')
                 ->icon('heroicon-o-check-circle'),
-
             Stat::make('Draft Posts', Number::format($drafts))
                 ->description('The total number of draft posts')
                 ->icon('heroicon-o-x-circle'),

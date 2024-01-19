@@ -130,4 +130,15 @@ class Post extends Model
     {
         return $query->where('is_published', false);
     }
+
+    /**
+     * Retrieve the author.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAuthors($query)
+    {
+        return $query->select('user_id')->distinct()->get();
+    }
 }
