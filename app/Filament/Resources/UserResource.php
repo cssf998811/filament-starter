@@ -33,6 +33,11 @@ class UserResource extends Resource
      */
     protected static ?int $navigationSort = 1;
 
+    public static function canAccess(): bool
+    {
+        return User::make()->canManageUsers();
+    }
+
     /**
      * Get the navigation badge for the resource.
      */

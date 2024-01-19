@@ -52,6 +52,12 @@ class User extends Authenticatable implements FilamentUser
         return true;
     }
 
+    public function canManageUsers(): bool
+    {
+        // TODO: use RBAC to set permission better
+        return auth()->user()->id === 1;
+    }
+
     /**
      * The posts that belong to the user.
      *
