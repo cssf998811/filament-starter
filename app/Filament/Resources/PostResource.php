@@ -14,6 +14,10 @@ use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions\ImportAction;
+use Filament\Tables\Actions\ExportAction;
+use App\Filament\Imports\PostImporter;
+use App\Filament\Exports\PostExporter;
 use Illuminate\Support\Str;
 
 class PostResource extends Resource
@@ -153,6 +157,12 @@ class PostResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->headerActions([
+                ImportAction::make()
+                ->importer(PostImporter::class),
+                ExportAction::make()
+                ->exporter(PostExporter::class)
+            ])
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->sortable()
