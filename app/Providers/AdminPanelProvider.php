@@ -25,6 +25,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Jeffgreco13\FilamentBreezy\BreezyCore;
 use Pboivin\FilamentPeek\FilamentPeekPlugin;
+use BezhanSalleh\FilamentShield\FilamentShieldPlugin;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -39,6 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ->spa()
             ->databaseNotifications()
             ->plugins([
+                FilamentShieldPlugin::make(),
                 BreezyCore::make()
                     ->myProfile(
                         shouldRegisterUserMenu: true,
