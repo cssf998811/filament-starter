@@ -52,7 +52,9 @@ class AdminPanelProvider extends PanelProvider
                     ->label('Media')
                     ->pluralLabel('Media Library')
                     ->navigationIcon('heroicon-o-photo')
-                    ->navigationGroup('Media')
+                    // ->navigationGroup('Media')
+                    ->navigationGroup('Collections')
+                    ->navigationSort(1)
                     ->navigationCountBadge(),
                 FilamentExceptionsPlugin::make(),
                 FilamentJobsMonitorPlugin::make()

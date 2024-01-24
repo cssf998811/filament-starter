@@ -8,8 +8,13 @@
     "filament"
   ],
   "license": "MIT",
+  "platform": {
+    "php": "8.2.15",
+    "ext-intl": "1.0.8",
+    "ext-zip": "1.19.3"
+  },
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "awcodes/filament-curator": "^3.3",
     "awcodes/filament-gravatar": "^2.0",
     "bezhansalleh/filament-exceptions": "^2.0",
